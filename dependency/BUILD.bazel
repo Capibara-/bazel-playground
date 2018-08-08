@@ -1,0 +1,27 @@
+package(default_visibility = ["//visibility:public"])
+java_library(
+	name = "leaf",
+	srcs = ["Leaf.java"]
+)
+java_library(
+	name = "intermediate",
+	srcs = ["Intermediate.java"],
+	deps = [":leaf"]
+
+)
+java_library(
+	name = "intermediate3",
+	srcs = ["Intermediate.java"],
+	deps = [":leaf"]
+
+)
+java_library(
+	name = "intermediate2",
+	srcs = ["Intermediate.java"],
+	deps = [":intermediate3"]
+)
+java_library(
+	name = "root",
+	srcs = ["Root.java"],
+	deps = [":intermediate", ":intermediate2"]
+)
